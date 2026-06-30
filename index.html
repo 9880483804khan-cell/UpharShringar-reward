@@ -3,111 +3,192 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Uphar Shringar Reward</title>
+<title>🎁 Uphar Shringar Rewards</title>
 
 <style>
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial,sans-serif;
-background:#f5f5f5;
+}
+
+body{
+background:linear-gradient(135deg,#ffcc00,#ff9800);
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
+min-height:100vh;
+padding:20px;
 }
 
-.box{
+.card{
 background:#fff;
-width:90%;
-max-width:400px;
+width:100%;
+max-width:420px;
 padding:25px;
 border-radius:20px;
 text-align:center;
-box-shadow:0 0 15px rgba(0,0,0,.2);
+box-shadow:0 10px 25px rgba(0,0,0,.25);
 }
 
-h1{
-color:#b8860b;
+.logo{
+font-size:32px;
+font-weight:bold;
+color:#d35400;
+margin-bottom:10px;
 }
 
-p{
-font-size:18px;
+.title{
+font-size:22px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.sub{
+font-size:15px;
+color:#555;
+margin-bottom:20px;
 }
 
 button{
 width:100%;
 padding:15px;
-font-size:18px;
 border:none;
-border-radius:10px;
-margin-top:15px;
+border-radius:12px;
+font-size:18px;
+margin-top:12px;
 cursor:pointer;
+font-weight:bold;
+transition:.3s;
 }
 
-.join{
+.whatsapp{
 background:#25D366;
-color:white;
+color:#fff;
 }
 
-.reward{
-background:#ff9800;
-color:white;
+.review{
+background:#4285F4;
+color:#fff;
+}
+
+.claim{
+background:#ff5722;
+color:#fff;
 display:none;
 }
 
-#gift{
+#reward{
 display:none;
 margin-top:20px;
-font-size:26px;
+padding:15px;
+border-radius:12px;
+background:#fff8dc;
+border:2px dashed #ff9800;
+}
+
+.code{
+font-size:34px;
 font-weight:bold;
 color:red;
+margin:10px 0;
+}
+
+.amount{
+font-size:24px;
+font-weight:bold;
+color:green;
 }
 </style>
 </head>
 
 <body>
 
-<div class="box">
+<div class="card">
 
-<h1>🎁 UPHAR SHRINGAR</h1>
+<div class="logo">🎁 UPHAR SHRINGAR</div>
 
-<p>
-WhatsApp Community Join karke Reward Paye.
-</p>
+<div class="title">
+Special Reward Offer
+</div>
+
+<div class="sub">
+WhatsApp Join करें और Google Review देकर Reward पाएँ।
+</div>
+
 <a href="https://chat.whatsapp.com/LFdLbHkoK0iBfLWeK1XUB0" target="_blank">
-    <button class="join" onclick="joined()">
-        📲 WhatsApp Join
-    </button>
+<button class="whatsapp" onclick="step1()">
+📲 Join WhatsApp
+</button>
 </a>
 
-<button class="reward" id="rewardBtn" onclick="reward()">
+<a href="https://g.page/r/CZgUfg_j1lIwEAE/review" target="_blank">
+<button class="review" onclick="step2()">
+⭐ Google Review
+</button>
+</a>
+
+<button id="claimBtn" class="claim" onclick="reward()">
 🎁 Claim Reward
 </button>
 
-<div id="gift"></div>
+<div id="reward">
+
+<h2>🎉 Congratulations</h2>
+
+<div class="code" id="code"></div>
+
+<div class="amount" id="money"></div>
+
+<p>
+इस Reward Code को दुकान पर दिखाइए।
+</p>
 
 </div>
+   </div>
 
 <script>
 
-function joined(){
-setTimeout(function(){
-document.getElementById("rewardBtn").style.display="block";
-},3000);
+let whatsappDone=false;
+let reviewDone=false;
+
+function step1(){
+    whatsappDone=true;
+    checkReady();
+}
+
+function step2(){
+    reviewDone=true;
+    checkReady();
+}
+
+function checkReady(){
+    if(whatsappDone && reviewDone){
+        document.getElementById("claimBtn").style.display="block";
+    }
 }
 
 function reward(){
 
-var code=Math.floor(1000+Math.random()*9000);
+const rewards=["₹10 OFF","₹20 OFF","₹30 OFF","₹40 OFF","₹50 OFF"];
 
-document.getElementById("gift").style.display="block";
+const amount=rewards[Math.floor(Math.random()*rewards.length)];
 
-document.getElementById("gift").innerHTML=
-"🎉 Mubarak!<br><br>Your Reward Code:<br><h1>"+code+"</h1><br>Is code ko shop par dikhaiye.";
+const code=Math.floor(1000+Math.random()*9000);
+
+document.getElementById("reward").style.display="block";
+
+document.getElementById("money").innerHTML="🎁 Reward : "+amount;
+
+document.getElementById("code").innerHTML="Code : "+code;
+
+document.getElementById("claimBtn").disabled=true;
+document.getElementById("claimBtn").innerHTML="✅ Reward Claimed";
 
 }
 
 </script>
 
 </body>
-</html>
+</html> 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,72 +9,80 @@
 body{
 margin:0;
 font-family:Arial,sans-serif;
-background:#f4f4f4;
+background:#f5f5f5;
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
 }
 
-.card{
-width:90%;
-max-width:350px;
+.box{
 background:#fff;
-padding:20px;
-border-radius:15px;
-box-shadow:0 0 15px rgba(0,0,0,.2);
+width:90%;
+max-width:400px;
+padding:25px;
+border-radius:20px;
 text-align:center;
+box-shadow:0 0 15px rgba(0,0,0,.2);
 }
 
 h1{
-color:#e91e63;
+color:#b8860b;
+}
+
+p{
+font-size:18px;
 }
 
 button{
 width:100%;
 padding:15px;
-margin-top:15px;
 font-size:18px;
 border:none;
 border-radius:10px;
+margin-top:15px;
 cursor:pointer;
 }
 
 .join{
 background:#25D366;
-color:#fff;
+color:white;
 }
 
 .reward{
 background:#ff9800;
-color:#fff;
+color:white;
+display:none;
 }
 
 #gift{
 display:none;
 margin-top:20px;
-font-size:24px;
+font-size:26px;
 font-weight:bold;
 color:red;
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="card">
+<div class="box">
 
-<h1>🎁 Reward Offer</h1>
+<h1>🎁 UPHAR SHRINGAR</h1>
 
-<p>WhatsApp Channel Join करें और Reward पाएं।</p>
+<p>
+WhatsApp Community Join karke Reward Paye.
+</p>
 
-<a href="https://whatsapp.com/channel/YOUR_LINK" target="_blank">
-<button class="join">Join WhatsApp</button>
+<a href="YOUR_WHATSAPP_LINK" target="_><a href="https://chat.whatsapp.com/LFdLbHkoK0iBfLWeK1XUB0" target="_blank">
+<button class="join" onclick="joined()">
+📲 WhatsApp Join
+</button>
 </a>
 
-<button class="reward" onclick="reward()">
-Claim Reward
+<button class="reward" id="rewardBtn" onclick="reward()">
+🎁 Claim Reward
 </button>
 
 <div id="gift"></div>
@@ -83,20 +91,20 @@ Claim Reward
 
 <script>
 
+function joined(){
+setTimeout(function(){
+document.getElementById("rewardBtn").style.display="block";
+},3000);
+}
+
 function reward(){
 
-let prize=[
-"🎉 ₹10 Cashback",
-"🎉 ₹20 Cashback",
-"🎉 ₹50 Cashback",
-"🎁 Free Gift",
-"😔 Better Luck Next Time"
-];
-
-let win=prize[Math.floor(Math.random()*prize.length)];
+var code=Math.floor(1000+Math.random()*9000);
 
 document.getElementById("gift").style.display="block";
-document.getElementById("gift").innerHTML=win;
+
+document.getElementById("gift").innerHTML=
+"🎉 Mubarak!<br><br>Your Reward Code:<br><h1>"+code+"</h1><br>Is code ko shop par dikhaiye.";
 
 }
 

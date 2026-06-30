@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uphar Shringar Reward</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f4f4;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.card{
+width:90%;
+max-width:350px;
+background:#fff;
+padding:20px;
+border-radius:15px;
+box-shadow:0 0 15px rgba(0,0,0,.2);
+text-align:center;
+}
+
+h1{
+color:#e91e63;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:15px;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.join{
+background:#25D366;
+color:#fff;
+}
+
+.reward{
+background:#ff9800;
+color:#fff;
+}
+
+#gift{
+display:none;
+margin-top:20px;
+font-size:24px;
+font-weight:bold;
+color:red;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🎁 Reward Offer</h1>
+
+<p>WhatsApp Channel Join करें और Reward पाएं।</p>
+
+<a href="https://whatsapp.com/channel/YOUR_LINK" target="_blank">
+<button class="join">Join WhatsApp</button>
+</a>
+
+<button class="reward" onclick="reward()">
+Claim Reward
+</button>
+
+<div id="gift"></div>
+
+</div>
+
+<script>
+
+function reward(){
+
+let prize=[
+"🎉 ₹10 Cashback",
+"🎉 ₹20 Cashback",
+"🎉 ₹50 Cashback",
+"🎁 Free Gift",
+"😔 Better Luck Next Time"
+];
+
+let win=prize[Math.floor(Math.random()*prize.length)];
+
+document.getElementById("gift").style.display="block";
+document.getElementById("gift").innerHTML=win;
+
+}
+
+</script>
+
+</body>
+</html>
